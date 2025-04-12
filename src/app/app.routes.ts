@@ -15,7 +15,6 @@ export const routes: Routes = [
       { path: 'skills', component: SkillsComponent },
       { path: 'experience', component: ExperienceComponent },
       { path: 'certifications', component: CertificationsComponent },
-      { path: 'projects', redirectTo: 'experience' },
       { path: '**', redirectTo: '' }
     ]
   }

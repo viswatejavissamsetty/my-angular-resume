@@ -25,6 +25,22 @@ import { CommonModule } from '@angular/common';
                 </div>
               </div>
             </div>
+            <div class="md:hidden">
+              <button (click)="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-primary-500 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path *ngIf="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  <path *ngIf="isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div [class.hidden]="!isMobileMenuOpen" class="md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <a routerLink="/about" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">About</a>
+              <a routerLink="/experience" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Experience</a>
+              <a routerLink="/skills" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Skills</a>
+              <a routerLink="/certifications" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Certifications</a>
+            </div>
           </div>
         </div>
       </nav>
@@ -34,4 +50,10 @@ import { CommonModule } from '@angular/common';
     </div>
   `
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+  isMobileMenuOpen = false;
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+}
