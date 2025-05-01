@@ -20,7 +20,7 @@ import { CommonModule } from '@angular/common';
                   <a routerLink="/about" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">About</a>
                   <a routerLink="/experience" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Experience</a>
                   <a routerLink="/skills" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Skills</a>
-                  <a routerLink="/projects" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Projects</a>
+                  <a routerLink="/experience" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Projects</a>
                   <a routerLink="/certifications" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Certifications</a>
                 </div>
               </div>
