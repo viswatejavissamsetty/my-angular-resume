@@ -23,26 +23,26 @@ interface SkillCategory {
   animations: [fadeInAnimation, fadeInUpAnimation, skillBarAnimation],
   template: `
     <div class="space-y-8 py-6" @fadeIn>
-      <h2 class="text-3xl font-bold text-primary-500 mb-8 text-center">
+      <h2 class="text-3xl font-bold text-emerald-200 mb-8 text-center">
         Technical Skills
       </h2>
 
       <div class="space-y-12">
         @for (category of skillCategories; track category.name) {
-          <section class="bg-gray-800 rounded-lg p-6 shadow-lg" @fadeInUp>
-            <h3 class="text-2xl font-semibold text-primary-400 mb-6">
+          <section class="bg-gray-800/50 rounded-lg p-6 shadow-lg backdrop-blur-sm" @fadeInUp>
+            <h3 class="text-2xl font-semibold text-emerald-300 mb-6">
               {{ category.name }}
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               @for (skill of category.skills; track skill.name) {
                 <div class="space-y-2">
                   <div class="flex justify-between items-center">
-                    <span class="text-gray-200">{{ skill.name }}</span>
-                    <span class="text-primary-500">{{ skill.rating }}/5</span>
+                    <span class="text-emerald-50">{{ skill.name }}</span>
+                    <span class="text-emerald-300">{{ skill.rating }}/5</span>
                   </div>
-                  <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div class="h-2 bg-emerald-900/50 rounded-full overflow-hidden">
                     <div
-                      class="h-full bg-primary-500 rounded-full"
+                      class="h-full bg-emerald-400 rounded-full"
                       @skillBar
                       [style.width.%]="(skill.rating / 5) * 100"
                     ></div>

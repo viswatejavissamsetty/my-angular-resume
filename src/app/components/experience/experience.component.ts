@@ -15,38 +15,38 @@ interface Experience {
   imports: [CommonModule],
   template: `
     <div class="space-y-8 py-6">
-      <h2 class="text-3xl font-bold text-primary-500 mb-8 text-center">
+      <h2 class="text-3xl font-bold text-blue-200 mb-8 text-center">
         Professional Experience
       </h2>
 
       <div class="space-y-12">
         @for (exp of experiences; track exp.company) {
-          <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+          <div class="bg-gray-800/50 rounded-lg p-6 shadow-lg backdrop-blur-sm">
             <div
               class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4"
             >
               <div>
-                <h3 class="text-2xl font-semibold text-primary-400">
+                <h3 class="text-2xl font-semibold text-blue-300">
                   {{ exp.company }}
                 </h3>
-                <p class="text-gray-300 text-lg">{{ exp.role }}</p>
+                <p class="text-blue-100 text-lg">{{ exp.role }}</p>
               </div>
-              <span class="text-gray-400 mt-2 md:mt-0">{{ exp.period }}</span>
+              <span class="text-blue-200 mt-2 md:mt-0">{{ exp.period }}</span>
             </div>
 
             <div class="space-y-4">
               @for (desc of exp.description; track desc) {
-                <p class="text-gray-300">{{ desc }}</p>
+                <p class="text-blue-50">{{ desc }}</p>
               }
 
               @if (exp.highlights.length > 0) {
                 <div class="mt-6">
-                  <h4 class="text-lg font-semibold text-primary-300 mb-3">
+                  <h4 class="text-lg font-semibold text-blue-300 mb-3">
                     Key Achievements
                   </h4>
                   <ul class="list-disc list-inside space-y-2">
                     @for (highlight of exp.highlights; track highlight) {
-                      <li class="text-gray-300">{{ highlight }}</li>
+                      <li class="text-blue-50">{{ highlight }}</li>
                     }
                   </ul>
                 </div>

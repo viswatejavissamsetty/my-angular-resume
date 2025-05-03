@@ -22,19 +22,19 @@ interface Certification {
     <div class="space-y-12 py-6">
       <!-- Education Section -->
       <section>
-        <h2 class="text-3xl font-bold text-primary-500 mb-8 text-center">
+        <h2 class="text-3xl font-bold text-rose-200 mb-8 text-center">
           Education
         </h2>
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           @for (edu of education; track edu.level) {
-            <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
-              <h3 class="text-xl font-semibold text-primary-400 mb-2">
+            <div class="bg-gray-800/50 rounded-lg p-6 shadow-lg backdrop-blur-sm">
+              <h3 class="text-xl font-semibold text-rose-300 mb-2">
                 {{ edu.level }}
               </h3>
-              <p class="text-gray-300 mb-2">{{ edu.institution }}</p>
-              <p class="text-gray-400 mb-2">Score: {{ edu.score }}</p>
+              <p class="text-rose-100 mb-2">{{ edu.institution }}</p>
+              <p class="text-rose-200 mb-2">Score: {{ edu.score }}</p>
               @if (edu.details) {
-                <p class="text-gray-400 text-sm">{{ edu.details }}</p>
+                <p class="text-rose-200 text-sm">{{ edu.details }}</p>
               }
             </div>
           }
@@ -43,18 +43,18 @@ interface Certification {
 
       <!-- Certifications Section -->
       <section>
-        <h2 class="text-3xl font-bold text-primary-500 mb-8 text-center">
+        <h2 class="text-3xl font-bold text-rose-200 mb-8 text-center">
           Certifications
         </h2>
         <div class="space-y-6">
           @for (cert of certifications; track cert.platform) {
-            <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
-              <h3 class="text-xl font-semibold text-primary-400 mb-2">
+            <div class="bg-gray-800/50 rounded-lg p-6 shadow-lg backdrop-blur-sm">
+              <h3 class="text-xl font-semibold text-rose-300 mb-2">
                 {{ cert.platform }}
               </h3>
-              <p class="text-gray-300 mb-2">{{ cert.name }}</p>
+              <p class="text-rose-100 mb-2">{{ cert.name }}</p>
               @if (cert.description) {
-                <p class="text-gray-400 text-sm">{{ cert.description }}</p>
+                <p class="text-rose-200 text-sm">{{ cert.description }}</p>
               }
             </div>
           }
