@@ -21,4 +21,5 @@
 /* Add smooth scroll animations */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 64px; /* Matches the navbar height (h-16 = 64px) */
 }
