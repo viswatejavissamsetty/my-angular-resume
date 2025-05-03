@@ -1,27 +1,26 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, RouterLink, RouterLinkActive],
+  imports: [ CommonModule, RouterOutlet],
   template: `
-    <div class="min-h-screen bg-gray-900">
-      <nav class="bg-gray-800 border-b border-gray-700">
+    <div class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <nav class="bg-gradient-to-r from-gray-800 via-gray-800 to-gray-700 border-b border-gray-700 sticky top-0 z-50 backdrop-blur-sm bg-opacity-80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <span class="text-primary-500 text-xl font-bold">Viswa Teja</span>
+                <span class="bg-gradient-to-r from-primary-500 to-orange-400 bg-clip-text text-transparent text-xl font-bold">Viswa Teja</span>
               </div>
               <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
-                  <a routerLink="/about" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">About</a>
-                  <a routerLink="/experience" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Experience</a>
-                  <a routerLink="/skills" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Skills</a>
-                  <a routerLink="/experience" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Projects</a>
-                  <a routerLink="/certifications" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Certifications</a>
+                  <a href="#about" class="text-gray-300 hover:bg-gradient-to-r hover:from-primary-500 hover:to-orange-400 hover:bg-clip-text hover:text-transparent px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">About</a>
+                  <a href="#experience" class="text-gray-300 hover:bg-gradient-to-r hover:from-primary-500 hover:to-orange-400 hover:bg-clip-text hover:text-transparent px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Experience</a>
+                  <a href="#skills" class="text-gray-300 hover:bg-gradient-to-r hover:from-primary-500 hover:to-orange-400 hover:bg-clip-text hover:text-transparent px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Skills</a>
+                  <a href="#certifications" class="text-gray-300 hover:bg-gradient-to-r hover:from-primary-500 hover:to-orange-400 hover:bg-clip-text hover:text-transparent px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Certifications</a>
                 </div>
               </div>
             </div>
@@ -36,10 +35,10 @@ import { CommonModule } from '@angular/common';
           </div>
           <div [class.hidden]="!isMobileMenuOpen" class="md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a routerLink="/about" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">About</a>
-              <a routerLink="/experience" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Experience</a>
-              <a routerLink="/skills" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Skills</a>
-              <a routerLink="/certifications" routerLinkActive="active" class="text-gray-300 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium [&.active]:text-primary-500 [&.active]:underline [&.active]:font-bold">Certifications</a>
+              <a href="#about" (click)="toggleMobileMenu()" class="text-gray-300 hover:bg-gradient-to-r hover:from-primary-500 hover:to-orange-400 hover:bg-clip-text hover:text-transparent block px-3 py-2 rounded-md text-base font-medium transition-all duration-300">About</a>
+              <a href="#experience" (click)="toggleMobileMenu()" class="text-gray-300 hover:bg-gradient-to-r hover:from-primary-500 hover:to-orange-400 hover:bg-clip-text hover:text-transparent block px-3 py-2 rounded-md text-base font-medium transition-all duration-300">Experience</a>
+              <a href="#skills" (click)="toggleMobileMenu()" class="text-gray-300 hover:bg-gradient-to-r hover:from-primary-500 hover:to-orange-400 hover:bg-clip-text hover:text-transparent block px-3 py-2 rounded-md text-base font-medium transition-all duration-300">Skills</a>
+              <a href="#certifications" (click)="toggleMobileMenu()" class="text-gray-300 hover:bg-gradient-to-r hover:from-primary-500 hover:to-orange-400 hover:bg-clip-text hover:text-transparent block px-3 py-2 rounded-md text-base font-medium transition-all duration-300">Certifications</a>
             </div>
           </div>
         </div>
