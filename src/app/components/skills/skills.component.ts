@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  fadeInAnimation,
+  fadeInUpAnimation,
+  skillBarAnimation,
+} from '../../shared/animations';
 
 interface Skill {
   name: string;
@@ -15,14 +20,19 @@ interface SkillCategory {
   selector: 'app-skills',
   standalone: true,
   imports: [CommonModule],
+  animations: [fadeInAnimation, fadeInUpAnimation, skillBarAnimation],
   template: `
-    <div class="space-y-8 py-6">
-      <h2 class="text-3xl font-bold text-primary-500 mb-8 text-center">Technical Skills</h2>
+    <div class="space-y-8 py-6" @fadeIn>
+      <h2 class="text-3xl font-bold text-primary-500 mb-8 text-center">
+        Technical Skills
+      </h2>
 
       <div class="space-y-12">
         @for (category of skillCategories; track category.name) {
-          <section class="bg-gray-800 rounded-lg p-6 shadow-lg">
-            <h3 class="text-2xl font-semibold text-primary-400 mb-6">{{ category.name }}</h3>
+          <section class="bg-gray-800 rounded-lg p-6 shadow-lg" @fadeInUp>
+            <h3 class="text-2xl font-semibold text-primary-400 mb-6">
+              {{ category.name }}
+            </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               @for (skill of category.skills; track skill.name) {
                 <div class="space-y-2">
@@ -33,6 +43,7 @@ interface SkillCategory {
                   <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
                     <div
                       class="h-full bg-primary-500 rounded-full"
+                      @skillBar
                       [style.width.%]="(skill.rating / 5) * 100"
                     ></div>
                   </div>
@@ -43,7 +54,7 @@ interface SkillCategory {
         }
       </div>
     </div>
-  `
+  `,
 })
 export class SkillsComponent {
   skillCategories: SkillCategory[] = [
@@ -59,8 +70,8 @@ export class SkillsComponent {
         { name: 'FastAPI', rating: 2 },
         { name: 'Flask', rating: 3 },
         { name: 'React Emails', rating: 3 },
-        { name: 'React Native - Expo', rating: 4 }
-      ]
+        { name: 'React Native - Expo', rating: 4 },
+      ],
     },
     {
       name: 'Libraries & Frameworks',
@@ -74,8 +85,8 @@ export class SkillsComponent {
         { name: 'NGRX Signal Store', rating: 4 },
         { name: 'Zustand', rating: 4 },
         { name: 'React Hook Form', rating: 4 },
-        { name: 'PrimeNG/PrimeReact', rating: 3 }
-      ]
+        { name: 'PrimeNG/PrimeReact', rating: 3 },
+      ],
     },
     {
       name: 'Programming Languages',
@@ -83,8 +94,8 @@ export class SkillsComponent {
         { name: 'JavaScript/TypeScript', rating: 4 },
         { name: 'Python', rating: 4 },
         { name: 'Java', rating: 3 },
-        { name: 'C/C++', rating: 2 }
-      ]
+        { name: 'C/C++', rating: 2 },
+      ],
     },
     {
       name: 'Tools & DevOps',
@@ -96,8 +107,8 @@ export class SkillsComponent {
         { name: 'PM2', rating: 3 },
         { name: 'Postman', rating: 4 },
         { name: 'Nginx', rating: 3 },
-        { name: 'GitHub Actions', rating: 3 }
-      ]
+        { name: 'GitHub Actions', rating: 3 },
+      ],
     },
     {
       name: 'Authentication & Security',
@@ -105,8 +116,8 @@ export class SkillsComponent {
         { name: 'Okta Authentication', rating: 3 },
         { name: 'Azure Entra Authentication', rating: 3 },
         { name: 'JWT Authentication', rating: 4 },
-        { name: 'RSA/AES Encryption', rating: 4 }
-      ]
-    }
+        { name: 'RSA/AES Encryption', rating: 4 },
+      ],
+    },
   ];
 }

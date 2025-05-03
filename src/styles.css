@@ -17,3 +17,8 @@
   --color-primary-900: #7c2d12;
   --color-primary-950: #431407;
 }
+
+/* Add smooth scroll animations */
+html {
+  scroll-behavior: smooth;
+}
