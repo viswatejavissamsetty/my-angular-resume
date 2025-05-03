@@ -30,7 +30,7 @@ import { fadeInAnimation, fadeInUpAnimation } from '../../shared/animations';
       </section>
 
       <!-- About Section -->
-      <section class="bg-gray-800 rounded-lg p-6 shadow-lg" @fadeInUp>
+      <section class="bg-gray-800/60 backdrop-blur-md rounded-lg p-6 shadow-lg border border-gray-700/50" @fadeInUp>
         <h2 class="text-2xl font-bold text-primary-500 mb-4">About Me</h2>
         <p class="text-gray-300 leading-relaxed">
           I am an enthusiastic developer who stays up-to-date with emerging
@@ -85,17 +85,17 @@ import { fadeInAnimation, fadeInUpAnimation } from '../../shared/animations';
 
       <!-- Quick Stats -->
       <section class="grid grid-cols-1 md:grid-cols-3 gap-6" @fadeInUp>
-        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div class="bg-gray-800/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 hover:bg-gray-800/60 transition-all duration-300">
           <h3 class="text-xl font-semibold text-primary-500 mb-2">
             Experience
           </h3>
           <p class="text-gray-300">4.5+ years at Infosys</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div class="bg-gray-800/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 hover:bg-gray-800/60 transition-all duration-300">
           <h3 class="text-xl font-semibold text-primary-500 mb-2">Expertise</h3>
           <p class="text-gray-300">Full Stack Development</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div class="bg-gray-800/40 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-gray-700/30 hover:bg-gray-800/60 transition-all duration-300">
           <h3 class="text-xl font-semibold text-primary-500 mb-2">Focus</h3>
           <p class="text-gray-300">Modern Web Technologies</p>
         </div>

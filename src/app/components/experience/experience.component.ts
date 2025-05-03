@@ -5,6 +5,7 @@ interface Experience {
   company: string;
   role: string;
   period: string;
+  startDate?: Date;
   description: string[];
   highlights: string[];
 }
@@ -59,11 +60,26 @@ interface Experience {
   `,
 })
 export class ExperienceComponent {
+  private calculateExperience(startDate: Date): string {
+    const now = new Date();
+    const diffInMonths = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
+    const years = Math.floor(diffInMonths / 12);
+    const months = diffInMonths % 12;
+    
+    if (years === 0) {
+      return `${months} Months`;
+    } else if (months === 0) {
+      return `${years} Years`;
+    } else {
+      return `${years} Years ${months} Months`;
+    }
+  }
+
   experiences: Experience[] = [
     {
       company: 'Infosys Apple Client',
       role: 'UI Developer',
-      period: 'Current',
+      period: this.calculateExperience(new Date('2023-01-01')),
       description: [
         "Working on Apple's SCI applications, creating various dashboard pages using modern technology stack.",
         'Implemented complex dashboards using Ag-Grid and HighCharts for data visualization.',
@@ -79,7 +95,7 @@ export class ExperienceComponent {
     {
       company: 'Infosys CareFirst Client',
       role: 'SME - Customer Portal',
-      period: '3.5 Years',
+      period: this.calculateExperience(new Date('2020-11-01')),
       description: [
         'Served as SME for the major customer portal, maintaining and enhancing core functionalities.',
         'Led the modernization initiative to update UI styling according to market trends.',
@@ -96,7 +112,7 @@ export class ExperienceComponent {
     {
       company: 'Infosys Training',
       role: 'UI Developer - STG',
-      period: 'Career Start',
+      period: this.calculateExperience(new Date('2020-11-01')),
       description: [
         'Started career in the Strategic Technology Group (STG), focusing on UI development.',
         'Received comprehensive training in MEAN stack development.',
