@@ -11,15 +11,22 @@ import { fadeInAnimation, fadeInUpAnimation } from '../../shared/animations';
     <div class="space-y-8" @fadeIn>
       <!-- Hero Section -->
       <section class="text-center py-12 px-4 sm:px-6 lg:px-8" @fadeInUp>
-        <h1 class="text-4xl font-bold text-primary-500 sm:text-5xl md:text-6xl">
-          <span class="font-bold underline">Viswa</span> Teja Vissamsetty
-        </h1>
-        <p class="mt-3 text-xl text-gray-300">Angular Developer at Infosys</p>
-        <p class="mt-6 text-lg text-gray-400 max-w-3xl mx-auto">
-          A passionate developer with expertise in Angular, React, and Node.js
-          ecosystems. Currently working with cutting-edge technologies and
-          always eager to learn and adapt to new challenges.
-        </p>
+        <div class="flex flex-col items-center space-y-6">
+          <div class="relative w-48 h-48 rounded-full overflow-hidden border-4 border-gradient-to-r from-cyan-400 to-blue-500 transform hover:scale-105 transition-transform duration-300 shadow-xl">
+            <img src="/profile.jpeg" alt="Viswa Teja" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h1 class="text-4xl font-bold text-primary-500 sm:text-5xl md:text-6xl">
+              <span class="font-bold underline">Viswa</span> Teja Vissamsetty
+            </h1>
+            <p class="mt-3 text-xl text-gray-300">Angular Developer at Infosys</p>
+            <p class="mt-6 text-lg text-gray-400 max-w-3xl mx-auto">
+              A passionate developer with expertise in Angular, React, and Node.js
+              ecosystems. Currently working with cutting-edge technologies and
+              always eager to learn and adapt to new challenges.
+            </p>
+          </div>
+        </div>
       </section>
 
       <!-- About Section -->
