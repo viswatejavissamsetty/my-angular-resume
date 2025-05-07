@@ -1,19 +1,18 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 interface Experience {
   company: string;
   role: string;
-  period: string;
   startDate?: Date;
+  endDate?: Date;
   description: string[];
   highlights: string[];
 }
 
 @Component({
   selector: 'app-experience',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [DatePipe],
   template: `
     <div class="space-y-8 py-6">
       <h2 class="text-3xl font-bold text-blue-200 mb-8 text-center">
@@ -22,7 +21,7 @@ interface Experience {
 
       <div class="space-y-12">
         @for (exp of experiences; track exp.company) {
-          <div class="bg-gray-800/50 rounded-lg p-6 shadow-lg backdrop-blur-sm">
+          <div class="transparent-card">
             <div
               class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4"
             >
@@ -32,7 +31,17 @@ interface Experience {
                 </h3>
                 <p class="text-blue-100 text-lg">{{ exp.role }}</p>
               </div>
-              <span class="text-blue-200 mt-2 md:mt-0">{{ exp.period }}</span>
+              <!-- Show range start date to end date if end date is not provided then its current position -->
+              <div class="mt-4 md:mt-0">
+                <p class="text-blue-100 text-sm">
+                  {{ exp.startDate | date: 'MMM yyyy' }}
+                  @if (exp.endDate) {
+                    - {{ exp.endDate | date: 'MMM yyyy' }}
+                  } @else {
+                    - Present
+                  }
+                </p>
+              </div>
             </div>
 
             <div class="space-y-4">
@@ -60,26 +69,11 @@ interface Experience {
   `,
 })
 export class ExperienceComponent {
-  private calculateExperience(startDate: Date): string {
-    const now = new Date();
-    const diffInMonths = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-    const years = Math.floor(diffInMonths / 12);
-    const months = diffInMonths % 12;
-    
-    if (years === 0) {
-      return `${months} Months`;
-    } else if (months === 0) {
-      return `${years} Years`;
-    } else {
-      return `${years} Years ${months} Months`;
-    }
-  }
-
   experiences: Experience[] = [
     {
       company: 'Infosys Apple Client',
       role: 'UI Developer',
-      period: this.calculateExperience(new Date('2023-01-01')),
+      startDate: new Date('2024-11-01'),
       description: [
         "Working on Apple's SCI applications, creating various dashboard pages using modern technology stack.",
         'Implemented complex dashboards using Ag-Grid and HighCharts for data visualization.',
@@ -95,7 +89,8 @@ export class ExperienceComponent {
     {
       company: 'Infosys CareFirst Client',
       role: 'SME - Customer Portal',
-      period: this.calculateExperience(new Date('2020-11-01')),
+      startDate: new Date('2021-03-01'),
+      endDate: new Date('2024-10-31'),
       description: [
         'Served as SME for the major customer portal, maintaining and enhancing core functionalities.',
         'Led the modernization initiative to update UI styling according to market trends.',
@@ -112,7 +107,8 @@ export class ExperienceComponent {
     {
       company: 'Infosys Training',
       role: 'UI Developer - STG',
-      period: this.calculateExperience(new Date('2020-11-01')),
+      startDate: new Date('2020-11-02'),
+      endDate: new Date('2021-01-31'),
       description: [
         'Started career in the Strategic Technology Group (STG), focusing on UI development.',
         'Received comprehensive training in MEAN stack development.',

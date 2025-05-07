@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from './components/layout/layout.component';
-import { HomeComponent } from './components/home/home.component';
+import { LayoutComponent } from './components/layout.component';
+import { HomeComponent } from './components/home.component';
 import { SkillsComponent } from './components/skills/skills.component';
-import { ExperienceComponent } from './components/experience/experience.component';
-import { CertificationsComponent } from './components/certifications/certifications.component';
-import { MainComponent } from './components/main/main.component';
+import { ExperienceComponent } from './components/experience.component';
+import { CertificationsComponent } from './components/certifications.component';
+import { MainComponent } from './components/main.component';
 
 export const routes: Routes = [
   {

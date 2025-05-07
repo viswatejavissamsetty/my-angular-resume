@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  fadeInAnimation,
-  fadeInUpAnimation,
-  skillBarAnimation,
-} from '../../shared/animations';
+import { fadeInAnimation, fadeInUpAnimation, skillBarAnimation } from '../shared/animations';
 
 interface Skill {
   name: string;
@@ -18,8 +13,6 @@ interface SkillCategory {
 
 @Component({
   selector: 'app-skills',
-  standalone: true,
-  imports: [CommonModule],
   animations: [fadeInAnimation, fadeInUpAnimation, skillBarAnimation],
   template: `
     <div class="space-y-8 py-6" @fadeIn>
@@ -29,7 +22,10 @@ interface SkillCategory {
 
       <div class="space-y-12">
         @for (category of skillCategories; track category.name) {
-          <section class="bg-gray-800/50 rounded-lg p-6 shadow-lg backdrop-blur-sm" @fadeInUp>
+          <section
+            class="transparent-card"
+            @fadeInUp
+          >
             <h3 class="text-2xl font-semibold text-emerald-300 mb-6">
               {{ category.name }}
             </h3>
@@ -40,7 +36,9 @@ interface SkillCategory {
                     <span class="text-emerald-50">{{ skill.name }}</span>
                     <span class="text-emerald-300">{{ skill.rating }}/5</span>
                   </div>
-                  <div class="h-2 bg-emerald-900/50 rounded-full overflow-hidden">
+                  <div
+                    class="h-2 bg-emerald-900/50 rounded-full overflow-hidden"
+                  >
                     <div
                       class="h-full bg-emerald-400 rounded-full"
                       @skillBar
